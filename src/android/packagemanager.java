@@ -44,12 +44,12 @@ public class packagemanager extends CordovaPlugin {
                 intent.addCategory(Intent.CATEGORY_LAUNCHER);
                 List<ResolveInfo> apps = pm.queryIntentActivities(intent, PackageManager.GET_META_DATA);
                 for (ResolveInfo packageInfo : apps) {
-                    list.add(packageInfo.activityInfo.applicationInfo.uid + ";" + packageInfo.activityInfo.applicationInfo.dataDir + ";" + packageInfo.activityInfo.applicationInfo.packageName + "; prova");
+                    list.add(packageInfo.activityInfo.applicationInfo.uid + ";" + packageInfo.activityInfo.applicationInfo.dataDir + ";" + packageInfo.activityInfo.applicationInfo.packageName + ";" + packageInfo.activityInfo.applicationInfo.loadLabel(getPackageManager()).toString());
                 }
             } else {
                 List<ApplicationInfo> listInstalledApps = getInstalledApps(context);
                 for (ApplicationInfo packageInfo : listInstalledApps) {
-                    list.add(packageInfo.uid + ";" + packageInfo.dataDir + ";" + packageInfo.packageName + ";" + packageInfo.activityInfo.applicationInfo.packageName + "; prova");
+                    list.add(packageInfo.uid + ";" + packageInfo.dataDir + ";" + packageInfo.packageName + ";" + packageInfo.activityInfo.applicationInfo.packageName + ";" + packageInfo.activityInfo.applicationInfo.loadLabel(getPackageManager()).toString());
                 }
             }
 
